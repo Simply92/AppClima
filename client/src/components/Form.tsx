@@ -29,6 +29,7 @@ const Form = ({ fetchWeather }: FormProps) => {
             return
         }
         fetchWeather(search)
+        setAlert('')
     }
 
     return (
@@ -37,8 +38,8 @@ const Form = ({ fetchWeather }: FormProps) => {
             onSubmit={handleSubmit}
             className="gap-8 flex flex-col items-center">
             {alert && <Alert>{alert}</Alert>}
-            <div className="gap-8 flex flex-col md:w-full">
-                <label className="font-bold text-white text-3xl" htmlFor="city">Ciudad: </label>
+            <div className="gap-8 flex flex-col md:w-full text-start">
+                <label className="font-bold text-white text-2xl" htmlFor="city">Ciudad: </label>
                 <input
                     className="p-2 bg-transparent border-4 border-solid text-white text-xl rounded-lg font-bold placeholder:text-white"
                     type="text"
@@ -48,8 +49,8 @@ const Form = ({ fetchWeather }: FormProps) => {
                     value={search.city}
                     onChange={handleChange} />
             </div>
-            <div className="gap-8 flex flex-col md:w-full">
-                <label className="font-bold text-white text-3xl" htmlFor="country">País: </label>
+            <div className="gap-8 flex flex-col md:w-full text-start">
+                <label className="font-bold text-white text-2xl" htmlFor="country">País: </label>
                 <select
                     id="country"
                     value={search.country}

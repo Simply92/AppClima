@@ -1,3 +1,4 @@
+import Alert from "./components/Alert"
 import Form from "./components/Form"
 import WeatherDetail from "./components/WeatherDetail"
 import Spinner from "./components/spinner/Spinner"
@@ -5,7 +6,7 @@ import useWeather from "./hooks/useWeather"
 
 function App() {
 
-  const { weather, loading, fetchWeather, hasWeatherData } = useWeather()
+  const { weather, loading, fetchWeather, hasWeatherData, notFound } = useWeather()
 
   return (
     <div className="bg-fondo bg-cover bg-no-repeat w-full h-screen flex flex-col">
@@ -19,7 +20,7 @@ function App() {
             <WeatherDetail
               weather={weather} />
           }
-
+          {notFound && <Alert>Ciudad no encontrada</Alert>}
         </div>
       </div>
     </div>
